@@ -3,7 +3,7 @@ export default function AuthLayout({ children }) {
     <div className="min-h-screen bg-[#f7f4f0] text-neutral-950">
       <div className="grid min-h-screen lg:grid-cols-[1.08fr_0.92fr]">
         <section className="relative hidden overflow-hidden bg-neutral-950 lg:block">
-          <img src="/login_bg.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-70" />
+          <img src={import.meta.env.BASE_URL + 'login_bg.jpg'} alt="" className="absolute inset-0 h-full w-full object-cover opacity-70" />
           <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/55 to-orange-700/55" />
           <div className="relative z-10 flex h-full flex-col justify-between p-12">
             <div className="flex items-center gap-3">

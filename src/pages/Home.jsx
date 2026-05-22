@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="space-y-14 pb-8">
       <section className="relative overflow-hidden rounded-lg bg-neutral-950 text-white shadow-2xl shadow-black/10">
-        <img src="/login_bg.jpg" alt="Energy Flow property" className="absolute inset-0 h-full w-full object-cover opacity-45" />
+        <img src={import.meta.env.BASE_URL + 'login_bg.jpg'} alt="Energy Flow property" className="absolute inset-0 h-full w-full object-cover opacity-45" />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-orange-900/35" />
         <div className="relative grid min-h-[520px] items-center gap-10 p-6 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:p-12">
           <div>
