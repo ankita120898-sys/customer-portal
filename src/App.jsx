@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import ForgotPassword from './pages/ForgotPassword';
 import Home from './pages/Home';
 import Properties from './pages/Properties';
+import PropertyDetail from './pages/PropertyDetail';
 import About from './pages/About';
 import Amenities from './pages/Amenities';
 import AccessRequest from './pages/AccessRequest';
@@ -41,7 +42,7 @@ export default function App() {
 
           {/* Website pages - top navbar layout */}
           <Route path="/home" element={<PrivateRoute useHome><Home /></PrivateRoute>} />
-          <Route path="/properties" element={<PrivateRoute useHome><Properties /></PrivateRoute>} />
+          <Route path="/properties" element={<PrivateRoute useHome><Properties /></PrivateRoute>} />`r`n          <Route path="/properties/:propertyId" element={<PrivateRoute useHome><PropertyDetail /></PrivateRoute>} />
           <Route path="/about" element={<PrivateRoute useHome><About /></PrivateRoute>} />
           <Route path="/amenities" element={<PrivateRoute useHome><Amenities /></PrivateRoute>} />
           <Route path="/access-request" element={<PrivateRoute useHome><AccessRequest /></PrivateRoute>} />
@@ -60,4 +61,5 @@ export default function App() {
     </AuthProvider>
   );
 }
+
 
