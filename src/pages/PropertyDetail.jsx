@@ -13,31 +13,34 @@ export default function PropertyDetail() {
     <div className="space-y-7 pb-8">
       <button onClick={() => navigate('/properties')} className="text-sm font-bold text-neutral-500 transition hover:text-orange-700">Back to properties</button>
 
-      <section className={`relative overflow-hidden rounded-lg bg-gradient-to-br ${property.cover} p-7 text-white shadow-2xl shadow-black/10 sm:p-10`}>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(255,255,255,0.28),transparent_28%)]" />
-        <div className="relative grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/75">{property.status}</p>
-            <h1 className="mt-3 text-4xl font-black leading-tight sm:text-6xl">{property.name}</h1>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-white/75">{property.description}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Button onClick={() => navigate('/access-request')}>Request access</Button>
-              <Button variant="secondary" onClick={() => navigate('/cases')} className="border-white/20 bg-white/10 text-white hover:border-white hover:bg-white hover:text-neutral-950">Open cases</Button>
+      <section className="grid gap-5 lg:grid-cols-[1fr_360px]">
+        <Card className="p-6">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">{property.project}</p>
+              <h1 className="mt-2 text-3xl font-black text-neutral-950">{property.name}</h1>
+              <p className="mt-2 text-sm font-semibold text-neutral-500">{property.location}</p>
             </div>
+            <span className="w-max rounded-full bg-orange-100 px-3 py-1 text-xs font-black text-orange-800">{property.status}</span>
           </div>
-          <Card className="border-white/15 bg-white/95 p-5 text-neutral-950">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-600">Property manager</p>
-            <h2 className="mt-2 text-2xl font-black">{property.manager}</h2>
-            <p className="mt-3 text-sm leading-6 text-neutral-500">{property.address}</p>
-          </Card>
-        </div>
+          <p className="mt-5 max-w-3xl text-sm leading-7 text-neutral-600">{property.description}</p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Button onClick={() => navigate('/access-request')}>Request access</Button>
+            <Button variant="secondary" onClick={() => navigate('/cases')}>Open cases</Button>
+          </div>
+        </Card>
+        <Card className="p-6">
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-600">Property manager</p>
+          <h2 className="mt-2 text-2xl font-black text-neutral-950">{property.manager}</h2>
+          <p className="mt-3 text-sm leading-6 text-neutral-500">{property.address}</p>
+        </Card>
       </section>
 
       <section className="grid gap-4 md:grid-cols-4">
         <StatCard label="Units" value={property.units} detail="Under management" tone="orange" />
         <StatCard label="Occupancy" value={property.occupancy} detail="Current status" tone="green" />
         <StatCard label="Open requests" value={property.openRequests} detail="Service queue" />
-        <StatCard label="Documents" value="12" detail="Available files" />
+        <StatCard label="Budget" value={`INR ${property.budget.toLocaleString('en-IN')}`} detail="Monthly estimate" />
       </section>
 
       <section className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">

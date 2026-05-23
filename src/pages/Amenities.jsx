@@ -13,29 +13,27 @@ const amenities = [
 export default function Amenities() {
   const navigate = useNavigate();
   return (
-    <div className="space-y-8 pb-8">
-      <section className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-        <div className="rounded-lg bg-neutral-950 p-7 text-white shadow-2xl shadow-black/10 sm:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-300">Amenity listing</p>
-          <h1 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">Spaces and services ready when your tenants need them.</h1>
-          <p className="mt-5 max-w-2xl text-sm leading-7 text-white/70">Browse community spaces, book access, and route approvals to the right service team in a few clicks.</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button onClick={() => navigate('/access-request')}>Book an amenity</Button>
-            <Button variant="secondary" onClick={() => navigate('/properties')} className="border-white/20 bg-white/10 text-white hover:bg-white hover:text-neutral-950">View properties</Button>
-          </div>
+    <div className="space-y-7 pb-8">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">Amenity Listing</p>
+          <h1 className="mt-1 text-3xl font-black text-neutral-950">Amenities</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-neutral-500">Browse shared facilities, availability, and booking requirements for your linked properties.</p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
-          <Feature title="Fast approvals" text="Requests are attached to your verified tenant account." />
-          <Feature title="Live availability" text="Status tags make it easy to see what needs booking." />
-          <Feature title="Shared history" text="Bookings and permissions are visible from My Account." />
-        </div>
+        <Button onClick={() => navigate('/access-request')}>Book an amenity</Button>
+      </div>
+
+      <section className="grid gap-4 md:grid-cols-3">
+        <Feature title="Quick booking" text="Submit access and amenity requests directly from the listing." />
+        <Feature title="Clear availability" text="Status tags show when a facility is available or requires approval." />
+        <Feature title="Connected profile" text="Requests are linked to your tenant account for faster validation." />
       </section>
 
       <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {amenities.map(item => (
-          <Card key={item.name} className="group overflow-hidden p-5 transition hover:-translate-y-1 hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10">
+          <Card key={item.name} className="p-5 transition hover:border-orange-300 hover:shadow-xl hover:shadow-orange-500/10">
             <div className="mb-5 flex items-start justify-between gap-4">
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-50 text-lg font-black text-orange-700">{item.name[0]}</div>
+              <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-orange-50 text-lg font-black text-orange-700">{item.name[0]}</div>
               <span className={`rounded-full px-3 py-1 text-xs font-black ${item.tone}`}>{item.status}</span>
             </div>
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-600">{item.category}</p>
@@ -51,5 +49,5 @@ export default function Amenities() {
 }
 
 function Feature({ title, text }) {
-  return <Card className="p-6"><p className="text-lg font-black text-neutral-950">{title}</p><p className="mt-2 text-sm leading-6 text-neutral-500">{text}</p></Card>;
+  return <Card className="p-5"><p className="text-lg font-black text-neutral-950">{title}</p><p className="mt-2 text-sm leading-6 text-neutral-500">{text}</p></Card>;
 }

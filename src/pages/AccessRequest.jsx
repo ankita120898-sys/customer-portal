@@ -21,18 +21,18 @@ export default function AccessRequest() {
   };
 
   return (
-    <div className="space-y-8 pb-8">
-      <section className="relative overflow-hidden rounded-lg bg-gradient-to-br from-neutral-950 via-neutral-900 to-orange-700 p-7 text-white shadow-2xl shadow-black/10 sm:p-10">
-        <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/10" />
-        <div className="relative max-w-3xl">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-orange-300">Access request</p>
-          <h1 className="mt-4 text-4xl font-black leading-tight sm:text-5xl">Request access without chasing emails or approvals.</h1>
-          <p className="mt-5 text-sm leading-7 text-white/70">Select a request type, choose the property, and send the details to the right team instantly.</p>
+    <div className="space-y-7 pb-8">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">Permissions</p>
+          <h1 className="mt-1 text-3xl font-black text-neutral-950">Access Request</h1>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-neutral-500">Submit amenity, visitor parking, document, or move-in access requests for your selected property.</p>
         </div>
-      </section>
+        <Button variant="secondary" onClick={() => navigate('/cases')}>View service requests</Button>
+      </div>
 
-      <section className="grid gap-5 lg:grid-cols-[0.85fr_1.15fr]">
-        <Card className="p-6">
+      <section className="grid gap-5 lg:grid-cols-[360px_1fr]">
+        <Card className="h-max p-6 lg:sticky lg:top-28">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600">Choose request type</p>
           <h2 className="mt-2 text-2xl font-black text-neutral-950">What do you need?</h2>
           <div className="mt-6 space-y-3">
